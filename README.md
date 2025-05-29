@@ -1,4 +1,4 @@
-# 📚 Bookstore Microservices (Go + Echo + PostgreSQL)
+## 📚 Bookstore Microservices (Go + Echo + PostgreSQL)
 
 This project demonstrates a basic microservices architecture using:
 
@@ -11,7 +11,7 @@ This project demonstrates a basic microservices architecture using:
 
 ---
 
-## 🔧 Services
+### 🔧 Services
 
 ### 🧑 `user-service`
 
@@ -28,7 +28,7 @@ Handles:
 
 ---
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 ### ✅ Prerequisites
 
