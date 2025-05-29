@@ -7,6 +7,8 @@ services:
       - "8081:8081"
     depends_on:
       - userdb
+    env_file:
+      - ./user-service/.env
     networks:
       - appnet
 
@@ -17,6 +19,8 @@ services:
     depends_on:
       - bookdb
       - user-service
+    env_file:
+      - ./book-service/.env
     networks:
       - appnet
 
