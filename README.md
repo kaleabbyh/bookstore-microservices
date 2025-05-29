@@ -1,4 +1,4 @@
-# 📚 Bookstore Microservices (Go + Echo + PostgreSQL)
+## 📚 Bookstore Microservices (Go + Echo + PostgreSQL)
 
 This project demonstrates a basic microservices architecture using:
 
@@ -33,7 +33,7 @@ Handles:
 ### ✅ Prerequisites
 
 - Docker + Docker Compose
-- Go 1.21+ (for local dev)
+- Go 1.23.1 (for local dev)
 
 ---
 
