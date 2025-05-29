@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - userdb
+    networks:
+      - appnet
+
+  book-service:
+    build: ./book-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - bookdb
+      - user-service
+    networks:
+      - appnet
+
+  userdb:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: userdb
+    ports:
+      - "5435:5432"
+    networks:
+      - appnet
+
+  bookdb:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bookdb
+    ports:
+      - "5436:5432"
+    networks:
+      - appnet
+
+networks:
+  appnet:
