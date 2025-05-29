@@ -33,7 +33,7 @@ Handles:
 ### ✅ Prerequisites
 
 - Docker + Docker Compose
-- Go 1.21+ (for local dev)
+- Go 1.23.1 (for local dev)
 
 ---
 
