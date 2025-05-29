@@ -17,6 +17,6 @@ func Init() {
 	if err != nil {
 		log.Fatal("failed to connect to book db: ", err)
 	}
-
+	//auto migration
 	DB.AutoMigrate(&model.Book{})
 }
