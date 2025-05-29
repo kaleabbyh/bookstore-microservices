@@ -1,8 +1,10 @@
 package db
 
 import (
+	"fmt"
 	"log"
 
+	"github.com/kaleabbyh/book-service/config"
 	"github.com/kaleabbyh/book-service/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -10,13 +12,19 @@ import (
 
 var DB *gorm.DB
 
-func Init() {
-	dsn := "host=bookdb user=postgres password=postgres dbname=bookdb port=5432 sslmode=disable"
+func Init(cfg *config.Config) {
+	dsn := fmt.Sprintf(
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+		cfg.DBHost, cfg.DBUser, cfg.DBPassword, cfg.DBName, cfg.DBPort,
+	)
+
 	var err error
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal("failed to connect to book db: ", err)
+		log.Fatal("failed to connect to user db: ", err)
 	}
 
-	DB.AutoMigrate(&model.Book{})
+	if err := DB.AutoMigrate(&model.Book{}); err != nil {
+		log.Fatal("failed to migrate book model: ", err)
+	}
 }
