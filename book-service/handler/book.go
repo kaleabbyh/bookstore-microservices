@@ -70,5 +70,6 @@ func CreateBook(c echo.Context) error {
 func GetBooks(c echo.Context) error {
 	var books []model.Book
 	db.DB.Find(&books)
+	//return c.JSON(http.StatusOK, books)
 	return c.JSON(http.StatusOK, books)
 }
